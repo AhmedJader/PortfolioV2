@@ -29,3 +29,8 @@ body {
 .animate-vertical-scroll {
   animation: scroll-vertically 60s linear infinite;
 }
+
+.group:hover .animate-vertical-scroll {
+  animation-play-state: paused;
+}
+

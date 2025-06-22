@@ -22,12 +22,12 @@ export default function Home() {
     <main
       className={`${
         isInverted ? 'invert' : ''
-      } flex h-screen w-screen overflow-hidden bg-gradient-to-b from-[#121224] to-black text-white`}
+      } flex h-screen w-screen transition-all duration-300 ease-in-out overflow-hidden bg-gradient-to-b from-[#121224] to-black text-white`}
     >
       {/* Toggle Button */}
       <button
         onClick={() => setIsInverted((prev) => !prev)}
-        className="absolute top-4 right-4 z-50 px-4 py-2 bg-white text-black rounded-md shadow hover:opacity-80 transition"
+        className="absolute hover:cursor-pointer  top-4 right-4 z-50 px-4 py-2 bg-white text-black rounded-md shadow hover:opacity-80 transition"
       >
         Toggle Theme
       </button>
