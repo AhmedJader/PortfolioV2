@@ -5,6 +5,9 @@ import fs from "fs/promises";
 import path from "path";
 import pdf from "pdf-parse";
 import { createResource } from "@/lib/actions/resources";
+import { db } from "@/lib/db"; // <-- make sure this path is correct
+import { resources } from "@/lib/db/schema/resources"; // <-- and this too
+import { eq } from "drizzle-orm";
 
 const PDF_DIR = path.join(process.cwd(), "pdfs");
 
@@ -13,19 +16,25 @@ async function main() {
   const pdfFiles = files.filter((file) => file.endsWith(".pdf"));
 
   for (const file of pdfFiles) {
+    const safeFilename = file.replace(/[^\w\d\-_.]/g, "_");
+
+    // ✅ Skip if already in DB
+    const [existing] = await db.select().from(resources).where(eq(resources.filename, safeFilename));
+    if (existing) {
+      console.log(`⏭ Skipping ${safeFilename} (already processed)`);
+      continue;
+    }
+
     const filePath = path.join(PDF_DIR, file);
     const buffer = await fs.readFile(filePath);
 
     try {
       const { text } = await pdf(buffer);
 
-      // ✅ Clean the extracted text
       const cleanedText = text
         .replace(/[^\x00-\x7F]/g, "") // Remove non-ASCII characters
-        .replace(/\s+/g, " ") // Normalize whitespace
+        .replace(/\s+/g, " ")        // Normalize whitespace
         .trim();
-
-      const safeFilename = file.replace(/[^\w\d\-_.]/g, "_");
 
       const result = await createResource({
         filename: safeFilename,
