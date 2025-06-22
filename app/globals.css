@@ -1,17 +1,31 @@
 @import "tailwindcss";
 
+/* Only set full height – don't force overflow: hidden */
 html,
 body {
   height: 100%;
-  overflow: hidden;
+  overflow-x: hidden; /* optional – prevents horizontal scroll only */
 }
 
 /* globals.css */
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
 .scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
 }
 
+@keyframes scroll-vertically {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+.animate-vertical-scroll {
+  animation: scroll-vertically 60s linear infinite;
+}
