@@ -1,21 +1,29 @@
 'use server';
 
 import { db } from "../db";
-import { insertResourceSchema, resources } from "../db/schema/resources";
+import { resources } from "../db/schema/resources";
 import { generateEmbeddings } from "../ai/embedding";
 import { embeddings as embeddingsTable } from "../db/schema/embeddings";
+import { z } from "zod";
 
-export const createResource = async (input: { content: string }) => {
+const contentSchema = z.object({
+  filename: z.string(),
+  content: z.string().min(1).max(1000000),
+});
+
+export const createResource = async (input: { filename: string; content: string }) => {
   try {
-    const { content } = insertResourceSchema.parse(input);
+    const { content, filename } = contentSchema.parse(input);
 
+    // ✅ Only insert filename into resources
     const [resource] = await db
       .insert(resources)
-      .values({ content })
+      .values({ filename })
       .returning();
 
     const e = await generateEmbeddings(content);
 
+    // ✅ Embed and store chunks
     await db.insert(embeddingsTable).values(
       e.map((embedding) => ({
         content: embedding.content,
@@ -26,6 +34,14 @@ export const createResource = async (input: { content: string }) => {
 
     return "Resource created and embedded.";
   } catch (e) {
-    return e instanceof Error ? e.message : "Failed to create resource.";
+    console.error("❌ ERROR during createResource");
+    if (e instanceof Error) {
+      console.error("→ MESSAGE:", e.message);
+      console.error("→ STACK:\n", e.stack);
+    } else {
+      console.error("→ RAW:", e);
+    }
+
+    return e instanceof Error ? e.message : "Unknown error";
   }
 };

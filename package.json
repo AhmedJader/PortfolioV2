@@ -26,6 +26,7 @@
     "drizzle-zod": "^0.8.2",
     "nanoid": "^5.1.5",
     "next": "15.3.4",
+    "pdf-parse": "^1.1.1",
     "postgres": "^3.4.7",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -34,6 +35,7 @@
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.10",
     "@types/node": "^20",
+    "@types/pdf-parse": "^1.1.5",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "autoprefixer": "^10.4.21",

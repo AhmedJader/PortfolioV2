@@ -27,7 +27,7 @@ export async function POST(req: Request) {
   // 🧱 Build a context string from trimmed chunks
   const contextString =
     trimmedChunks.length > 0
-      ? `Use this context to answer the question:\n\n${trimmedChunks
+      ? `You are speaking on behalf of Ahmed Abduljader, a computer science student at York University. Answer as if you are Ahmed. Base your responses on the following resume content:\n\n${trimmedChunks
           .map((c) => `- ${c.name}`)
           .join("\n")}`
       : "No context found in the knowledge base.";
@@ -43,19 +43,7 @@ export async function POST(req: Request) {
   const result = await streamText({
     model: openai("gpt-4o"),
     messages: [contextMessage, ...messages],
-    tools: {
-      addResource: tool({
-        description: `add a resource to your knowledge base.
-        If the user provides a random piece of knowledge unprompted, use this tool without asking for confirmation.`,
-        parameters: z.object({
-          content: z
-            .string()
-            .describe("the content or resource to add to the knowledge base"),
-        }),
-        execute: async ({ content }) => createResource({ content }),
-      }),
-      // getInformation tool is now optional (you can delete it)
-    },
+    tools: {},
   });
 
   return result.toDataStreamResponse();
