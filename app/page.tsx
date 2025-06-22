@@ -24,13 +24,15 @@ export default function Home() {
         isInverted ? 'invert' : ''
       } flex h-screen w-screen transition-all duration-300 ease-in-out overflow-hidden bg-gradient-to-b from-[#121224] to-black text-white`}
     >
-      {/* Toggle Button */}
-      <button
-        onClick={() => setIsInverted((prev) => !prev)}
-        className="absolute hover:cursor-pointer  top-4 right-4 z-50 px-4 py-2 bg-white text-black rounded-md shadow hover:opacity-80 transition"
-      >
-        Toggle Theme
-      </button>
+      {/* Use SVG from public folder */}
+      <img
+        src="/theme.svg"  // Reference the SVG as a static asset
+        alt="Toggle Theme"
+        className="absolute top-4 right-4 z-50 cursor-pointer hover:opacity-80 transition"
+        onClick={() => setIsInverted((prev) => !prev)} // Toggle theme on click
+        width={40} // Adjust width of the image as needed
+        height={40} // Adjust height of the image as needed
+      />
 
       <div className="flex-1 flex items-start justify-center h-full p-8 gap-8 overflow-hidden">
         <ProjectFeed />
