@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import ChatWrapper from '@/components/ChatWrapper';
 import ProjectFeed from '@/components/ProjectFeed';
+import { Dock } from '@/components/motion-primitives/dock';
 
 export default function Home() {
   const [isInverted, setIsInverted] = useState(false);
