@@ -43,10 +43,11 @@ export default function ChatWrapper() {
           />
           <div>
             <h2 className="text-sm font-semibold">Ahmed Abduljader</h2>
-            <p className="text-xs text-gray-400">
+            <p className={`text-xs ${darkMode ? 'text-gray-200' : 'text-gray-800'}`}>
               York University · Class of 2027<br />
               Toronto, Ontario
             </p>
+
           </div>
         </div>
         <ThemeToggle />
