@@ -20,24 +20,22 @@ export default function Home() {
 
   return (
     <main
-      className={`${
-        isInverted ? 'invert' : ''
-      } flex h-screen w-screen transition-all duration-300 ease-in-out overflow-hidden bg-gradient-to-b from-[#121224] to-black text-white`}
+      className={`${isInverted ? 'invert' : ''} flex h-screen w-screen transition-all duration-300 ease-in-out overflow-hidden bg-gradient-to-b from-[#121224] to-black text-white`}
     >
-      {/* Use SVG from public folder */}
-      <img
-        src="/theme.svg"  // Reference the SVG as a static asset
-        alt="Toggle Theme"
-        className="absolute top-4 right-4 z-50 cursor-pointer hover:opacity-80 transition"
-        onClick={() => setIsInverted((prev) => !prev)} // Toggle theme on click
-        width={40} // Adjust width of the image as needed
-        height={40} // Adjust height of the image as needed
-      />
+      {/* Project Feed - hidden on small screens */}
+      <aside className="hidden md:flex md:w-[280px] md:scale-[0.70] lg:w-[320px] xl:w-[360px] border-r border-white/10 overflow-y-auto px-2 py-4">
+        <div className="w-full">
+          <ProjectFeed />
+        </div>
+      </aside>
 
-      <div className="flex-1 flex items-start justify-center h-full p-8 gap-8 overflow-hidden">
-        <ProjectFeed />
-        <ChatWrapper />
-      </div>
+      {/* Chat Area - always centered, responsive width */}
+      <section className="flex flex-1 items-center justify-center">
+        <div className="flex items-center justify-center w-full h-full px-4">
+          <ChatWrapper />
+        </div>
+      </section>
+
     </main>
   );
 }

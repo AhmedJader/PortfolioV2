@@ -4,8 +4,14 @@
 html,
 body {
   height: 100%;
+  margin: 0;
+  padding: 0;
   overflow-x: hidden; /* optional – prevents horizontal scroll only */
 }
+html {
+  transition: filter 0.3s ease-in-out;
+}
+
 
 /* globals.css */
 .scrollbar-hide::-webkit-scrollbar {
