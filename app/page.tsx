@@ -5,7 +5,7 @@ import ProjectFeed from '@/components/ProjectFeed';
 
 export default function Home() {
   return (
-    <main className="flex h-screen w-screen transition-all duration-300 ease-in-out overflow-hidden bg-gradient-to-b from-[#121224] to-black text-white">
+    <main className="flex h-screen w-screen transition-all duration-300 ease-in-out overflow-hidden ">
       <aside className="hidden md:flex md:w-[280px] md:scale-[0.70] lg:w-[320px] xl:w-[360px] overflow-y-auto px-2 py-4">
         <div className="w-full">
           <ProjectFeed />

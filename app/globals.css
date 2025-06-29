@@ -1,28 +1,32 @@
 @import "tailwindcss";
 
-/* Only set full height – don't force overflow: hidden */
-html,
-body {
+/* Smooth background + color transitions */
+html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* optional – prevents horizontal scroll only */
-}
-html {
-  transition: filter 0.3s ease-in-out;
+  scroll-behavior: smooth;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-
-/* globals.css */
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
+html.dark {
+  background-color: #0b0c0e;
+  color: white;
 }
 
-.scrollbar-hide {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;     /* Firefox */
+html:not(.dark) {
+  background-color: white;
+  color: black;
 }
 
+
+.animate-scroll {
+  animation: scroll 40s linear infinite;
+  display: flex;
+  width: 200%;
+}
+
+/* Vertical scroll animation (project feed) */
 @keyframes scroll-vertically {
   0% {
     transform: translateY(0%);
@@ -40,33 +44,7 @@ html {
   animation-play-state: paused;
 }
 
-
-/* Light/Dark theme background handling */
-html.dark {
-  background-color: #0b0c0e;
-}
-
-html:not(.dark) {
-  background-color: white;
-}
-
-.bg-layer {
-  position: absolute;
-  inset: 0;
-  z-index: -2;
-  transition: background 0.4s ease-in-out;
-}
-
-html.dark .bg-layer {
-  background: radial-gradient(
-    ellipse 80% 80% at 50% -20%,
-    rgba(120, 119, 198, 0.3),
-    rgba(255, 255, 255, 0)
-  );
-  background-color: #0b0c0e;
-}
-
-html:not(.dark) .bg-layer {
-  background: linear-gradient(to right, #f5f5f5, #ffffff);
-  background-color: #ffffff;
+/* Hide scrollbars cross-browser */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }
