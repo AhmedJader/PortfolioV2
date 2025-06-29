@@ -26,8 +26,8 @@ export default function ThemeToggle() {
       <Image
         src="/theme.svg"
         alt="Toggle Theme"
-        width={24}
-        height={24}
+        width={30}
+        height={30}
       />
     </button>
   );

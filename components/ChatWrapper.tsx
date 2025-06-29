@@ -35,13 +35,30 @@ export default function ChatWrapper() {
   return (
     <div className="flex flex-col h-[90vh] w-full max-w-lg bg-[#1a1a2e] border border-white/10 rounded-2xl shadow-xl overflow-hidden">
 
-      {/* Header with theme toggle */}
-      <div className="flex items-center justify-end px-4 py-2 border-b border-white/10">
+      <div className="flex items-center justify-between px-4 py-3 border-b border-white/10">
+        {/* Left: Image and Info */}
+        <div className="flex items-center gap-4">
+          <img
+            src="/ahmed.webp"
+            alt="Ahmed Abduljader"
+            className="w-12 h-12 rounded-full object-cover border border-white/20"
+          />
+          <div className="text-white">
+            <h2 className="text-sm font-semibold">Ahmed Abduljader</h2>
+            <p className="text-xs text-gray-400">
+              York University · Class of 2027<br />
+              Toronto, Ontario
+            </p>
+          </div>
+        </div>
+
+        {/* Right: Theme Toggle */}
         <ThemeToggle />
       </div>
+
 
       <MessageList messages={messages} bottomRef={bottomRef} />
       <MessageInput input={input} handleInputChange={handleInputChange} handleSubmit={handleSubmit} />
     </div>
-    );
+  );
 }

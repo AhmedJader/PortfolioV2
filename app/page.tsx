@@ -23,7 +23,7 @@ export default function Home() {
       className={`${isInverted ? 'invert' : ''} flex h-screen w-screen transition-all duration-300 ease-in-out overflow-hidden bg-gradient-to-b from-[#121224] to-black text-white`}
     >
       {/* Project Feed - hidden on small screens */}
-      <aside className="hidden md:flex md:w-[280px] md:scale-[0.70] lg:w-[320px] xl:w-[360px] border-r border-white/10 overflow-y-auto px-2 py-4">
+      <aside className="hidden md:flex md:w-[280px] md:scale-[0.70] lg:w-[320px] xl:w-[360px] overflow-y-auto px-2 py-4">
         <div className="w-full">
           <ProjectFeed />
         </div>
