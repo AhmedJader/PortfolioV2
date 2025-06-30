@@ -17,14 +17,15 @@ export default function Home() {
         <ProjectList onSelect={setSelectedProject} />
       </aside>
 
-      <section className="flex w-full h-full items-center justify-center p-6 md:p-8">
-        <div className="flex-1 flex justify-center">
-          <Blog />
-        </div>
-        <div className="w-[440px] max-w-[90vw]">
+      <section className="grid grid-cols-1 md:grid-cols-2 w-full h-full p-6 md:p-8">
+        <div className="flex justify-end items-center">
           <ChatWrapper />
         </div>
+        <div className="hidden md:flex justify-end items-center">
+          <Blog />
+        </div>
       </section>
+
 
       {selectedProject && (
         <div className="fixed flex items-center justify-center backdrop-blur-lg inset-0 z-50 animate-fadeIn">
