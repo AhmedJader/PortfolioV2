@@ -36,7 +36,7 @@ export default function Home() {
       </aside>
 
       {/* Chat + Blog Section */}
-      <section className="grid grid-cols-1 md:grid-cols-2 w-full h-full p-6 md:p-8">
+      <section className="grid grid-cols-1 md:grid-cols-2 md:ml-20 w-full h-full p-6 md:p-10">
         <div className="flex justify-end items-center">
           <ChatWrapper />
         </div>
