@@ -17,14 +17,20 @@ export default function Home() {
         <ProjectList onHover={setHoveredProject} />
       </aside>
 
-      
 
-      {/* Chat Section */}
-      <section className="flex w-full h-full items-center justify-evenly p-6 md:p-8">
-        <Blog />
 
-        <ChatWrapper />
+      <section className="flex w-full h-full items-center justify-center p-6 md:p-8">
+        {/* Blog: centered column */}
+        <div className="flex-1 flex justify-center">
+          <Blog />
+        </div>
+
+        {/* ChatWrapper: fixed width on the right */}
+        <div className="w-[440px] max-w-[90vw]">
+          <ChatWrapper />
+        </div>
       </section>
+
 
 
 
