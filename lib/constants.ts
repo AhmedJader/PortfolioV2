@@ -48,3 +48,29 @@ export const PROJECTS: Project[] = [
     url: 'https://github.com/your-username/cloudless-agent', // Update with real link if needed
   }
 ];
+
+
+// lib/constants.ts
+export interface InfoCard {
+  id: string;
+  title: string;
+  description: string;
+}
+
+export const INFOCARDS: InfoCard[] = [
+  {
+    id: 'resume-agent',
+    title: '🧠 Resume RAG Agent',
+    description: 'Building a resume agent that uses embeddings to tailor feedback and generate improved résumés.',
+  },
+  {
+    id: 'rag-playground',
+    title: '🧪 RAG Playground',
+    description: 'Experimenting with multi-source RAG using PDFs + scraped data for personalized answers.',
+  },
+  {
+    id: 'rag-prototype-2',
+    title: '🚀 Agentic RAG v2',
+    description: 'Next-gen agent with memory, chaining, and fallback to local models (Ollama) when offline.',
+  },
+];
