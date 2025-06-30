@@ -6,7 +6,7 @@ html, body {
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
-  transition: background-color 0.4s ease, color 0.4s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 html.dark {
@@ -57,3 +57,23 @@ html:not(.dark) {
 .animate-fadeIn {
   animation: fadeIn 0.3s ease-out forwards;
 }
+
+
+/* Light mode (default) */
+:root {
+  --color-background: #ffffff;
+  --color-card: #f9fafb;
+  --color-border: #e5e7eb;
+  --color-text: #111827;
+  --color-subtext: #6b7280;
+}
+
+/* Dark mode (triggered by .dark class on <html>) */
+.dark {
+  --color-background: #0a0a10;         /* richer black with purple tint */
+  --color-card: #13131a;              /* deeper than #1a1a2e */
+  --color-border: #3a3a50;            /* clearer visible separation */
+  --color-text: #f0f0f5;              /* brighter white for contrast */
+  --color-subtext: #7e7e99;           /* cooler gray-purple */
+}
+

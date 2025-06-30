@@ -15,18 +15,17 @@ export default function Home() {
   return (
     <main className="flex h-screen w-screen transition-all duration-300 ease-in-out overflow-hidden relative">
       {/* BACKGROUND LAYER */}
-      <div className={`absolute inset-0 -z-10 h-full w-full transition-colors duration-500 ${darkMode ? 'bg-[#0b0c0e]' : 'bg-white'}`}>
+      <div className="absolute inset-0 -z-10 h-full w-full transition-colors duration-500 bg-[var(--color-background)]">
         <div
           className={`
       absolute h-full w-full transition-colors duration-500
-      ${darkMode
-              ? 'bg-[radial-gradient(#3b3b3b_1px,transparent_1px)]'
-              : 'bg-[radial-gradient(#e5e7eb_1px,transparent_1px)]'}
+      bg-[radial-gradient(var(--color-border)_1px,transparent_1px)]
       [background-size:16px_16px]
       [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]
     `}
         />
       </div>
+
 
 
 

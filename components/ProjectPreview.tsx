@@ -1,7 +1,6 @@
 'use client';
 
 import { Project } from '@/lib/constants';
-import { useTheme } from './ThemeProvider';
 import Link from 'next/link';
 
 type Props = {
@@ -10,15 +9,8 @@ type Props = {
 };
 
 export default function ProjectPreview({ project, onClose }: Props) {
-  const { darkMode } = useTheme();
-
   return (
-    <div
-      className={`relative w-full max-w-lg p-6 rounded-2xl shadow-2xl border transition-all duration-300 ease-in-out ${darkMode
-          ? 'bg-[#0e0e1a] text-white border-white/10'
-          : 'bg-white text-black border-gray-300'
-        }`}
-    >
+    <div className="relative w-full max-w-lg p-6 rounded-2xl shadow-2xl border bg-[var(--color-card)] text-[var(--color-text)] border-[var(--color-border)] transition-all duration-300 ease-in-out">
       {/* Close Button */}
       <button
         onClick={onClose}
