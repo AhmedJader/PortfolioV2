@@ -6,7 +6,7 @@ html, body {
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 html.dark {
@@ -27,7 +27,7 @@ html:not(.dark) {
 }
 
 /* Vertical scroll animation (project feed) */
-@keyframes scroll-vertically {
+@keyframes vertical-scroll {
   0% {
     transform: translateY(0%);
   }
@@ -37,7 +37,7 @@ html:not(.dark) {
 }
 
 .animate-vertical-scroll {
-  animation: scroll-vertically 60s linear infinite;
+  animation: vertical-scroll 30s linear infinite;
 }
 
 .group:hover .animate-vertical-scroll {

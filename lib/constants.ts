@@ -6,7 +6,6 @@ export interface Project {
   url: string;
 }
 
-
 export const PROJECTS: Project[] = [
   {
     id: 'portfolio',
@@ -32,4 +31,20 @@ export const PROJECTS: Project[] = [
       'This app lets users track expenses and budgets with user auth, REST APIs, and visualization dashboards. It uses Flask for the backend, React for the frontend, and SQLite/PostgreSQL for persistence.',
     url: 'https://github.com/your-username/finance-tracker',
   },
+  {
+    id: 'agentic-tutor',
+    name: 'Sustainable Agentic Tutor',
+    shortDescription: 'Self-hosted LLM tutor with sustainability and DEI focus.',
+    longDescription:
+      'A next-generation educational platform that creates personalized learning paths using quiz data and curriculum PDFs. Built with Next.js, FastAPI, Ollama, LangChain, and Chroma. Features include RAG-based retrieval, SerpAPI resource fetching, multi-language support, and a live sustainability dashboard. Designed to reduce carbon and cost by shifting computation to client devices.',
+    url: 'https://github.com/AhmedJader/GenAiHackathon',
+  },
+  {
+    id: 'cloudless-agent',
+    name: 'Cloudless RAG Agent',
+    shortDescription: 'RAG-based chatbot with fully local operation and memory.',
+    longDescription:
+      'A cloud-independent agentic chatbot that only responds using local knowledge base data. Built with Next.js 14, Drizzle ORM, pgvector (NeonDB), and Vercel AI SDK. Supports OpenAI and local embedding fallback, with fact recall and streaming support.',
+    url: 'https://github.com/your-username/cloudless-agent', // Update with real link if needed
+  }
 ];
