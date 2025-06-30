@@ -4,10 +4,10 @@ import { PROJECTS, Project } from '@/lib/constants';
 import { useTheme } from './ThemeProvider';
 
 type Props = {
-  onHover: (project: Project | null) => void;
+  onSelect: (project: Project | null) => void;
 };
 
-export default function ProjectList({ onHover }: Props) {
+export default function ProjectList({ onSelect }: Props) {
   const { darkMode } = useTheme();
 
   return (
@@ -17,17 +17,15 @@ export default function ProjectList({ onHover }: Props) {
           {[...PROJECTS, ...PROJECTS].map((project, index) => (
             <div
               key={`${project.id}-${index}`}
-              onMouseEnter={() => onHover(project)}
-              onMouseLeave={() => onHover(null)}
-              className={`p-4 rounded-lg border transition-transform transform hover:scale-[1.02] cursor-pointer ${
-                darkMode
+              onClick={() => onSelect(project)}
+              className={`p-4 rounded-lg border hover:scale-[1.02] transition-transform transform cursor-pointer ${darkMode
                   ? 'border-white/10 bg-[#1a1a2e] text-white'
                   : 'border-gray-300 bg-white text-black'
-              }`}
+                }`}
             >
               <h3 className="text-base font-semibold">{project.name}</h3>
               <p className="text-sm opacity-80">{project.shortDescription}</p>
-              <span className="text-blue-400 text-sm mt-2 inline-block">Hover to expand →</span>
+              <span className="text-blue-400 text-sm mt-2 inline-block">Click to expand →</span>
             </div>
           ))}
         </div>
