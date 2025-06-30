@@ -13,14 +13,13 @@ export default function ProjectPreview({ project }: Props) {
 
   return (
     <div
-      className={`w-full md:w-2/3 p-6 rounded-xl shadow-xl transition-all duration-300 ease-in-out ${
-        project ? 'opacity-100 translate-y-0' : 'opacity-0 pointer-events-none -translate-y-2'
-      } ${
-        darkMode
-          ? 'bg-[#0e0e1a] text-white border border-white/10'
-          : 'bg-gray-100 text-black border border-gray-300'
-      }`}
+      className={`w-full max-w-lg p-6 rounded-2xl shadow-2xl border transition-all duration-300 ease-in-out ${project ? 'opacity-100 translate-y-0' : 'opacity-0 pointer-events-none -translate-y-2'
+        } ${darkMode
+          ? 'bg-[#0e0e1a] text-white border-white/10'
+          : 'bg-white text-black border-gray-300'
+        }`}
     >
+
       {project && (
         <div className="space-y-4">
           <h2 className="text-2xl font-bold">{project.name}</h2>
