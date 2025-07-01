@@ -51,7 +51,8 @@ export default function BlogWrapper() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center h-[90vh] w-full max-w-md bg-[var(--color-card)] text-[var(--color-text)] border border-[var(--color-border)] rounded-2xl shadow-xl overflow-hidden transition-colors duration-300 p-6 space-y-6">
+    <div className="flex flex-col items-center justify-start h-auto w-full max-w-md bg-[var(--color-card)] text-[var(--color-text)] border border-[var(--color-border)] rounded-2xl shadow-xl overflow-hidden transition-colors duration-300 p-6 space-y-4">
+
 
       {/* Profile Header */}
       <div className="flex flex-col items-center text-center space-y-2">
@@ -92,13 +93,16 @@ export default function BlogWrapper() {
       {/* InfoCard with typewriter animation */}
       <div className="w-full bg-[var(--color-background)] text-[var(--color-text)] border border-[var(--color-border)] rounded-xl p-4">
         <h3 className="font-semibold text-base mb-2">🛠 Tech Stack</h3>
-        <p className="text-sm text-[var(--color-subtext)]">
-          <strong>Frontend:</strong> Next.js 14, TailwindCSS v4<br />
-          <strong>Backend:</strong> Drizzle ORM, NeonDB, Flask<br />
-          <strong>AI/RAG:</strong> OpenAI, Vercel AI SDK, pgvector<br />
-          <strong>Infra:</strong> Serverless, Vercel, LangChain
+        <p className="text-sm text-[var(--color-subtext)] leading-relaxed">
+          <strong>Frontend:</strong> Next.js 14 (App Router), React, TailwindCSS v4<br />
+          <strong>Backend:</strong> FastAPI, Express.js, Flask, Drizzle ORM<br />
+          <strong>Databases:</strong> PostgreSQL, NeonDB, ChromaDB, MongoDB<br />
+          <strong>AI/RAG:</strong> OpenAI GPT-4o, Vercel AI SDK, LangChain, Ollama, Cohere API, pgvector<br />
+          <strong>Infra:</strong> Serverless (Vercel), Self-hosted Linux LLMs, JWT, Bcrypt<br />
+          <strong>ML/Tooling:</strong> Scikit-Learn, SerpAPI, PDF-parse, TypeScript, Python
         </p>
       </div>
+
 
 
 
