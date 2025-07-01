@@ -108,12 +108,12 @@ export default function BlogWrapper() {
 
       {/* InfoCard with typewriter animation */}
       <div className="hover:cursor-pointer hover:scale-105 transition-all duration-300 ease-in-out w-full bg-[var(--color-background)] text-[var(--color-text)] border border-[var(--color-border)] rounded-xl p-4">
-        <h3 className="font-semibold text-base mb-2">🧭 Now</h3>
+        <h3 className="font-semibold text-base mb-2">🧭 Working On</h3>
         <p className="text-sm text-[var(--color-subtext)]">
-          • Building an AI-powered résumé agent using RAG<br />
-          • Exploring local embedding fallback (Ollama)<br />
-          • Preparing for internship interviews & open source<br />
-          • Studying advanced systems design & LLM chaining
+          • Building an RAG AI-powered automated résumé agent<br />
+          • Exploring Rag Agent Tools with NeonDB<br />
+          • Preparing a portfolio website (this one!)<br />
+          • Learning System Design workflows<br />
         </p>
       </div>
 
