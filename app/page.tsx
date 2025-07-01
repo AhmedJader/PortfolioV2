@@ -7,6 +7,7 @@ import ProjectPreview from '@/components/ProjectPreview';
 import ChatWrapper from '@/components/ChatWrapper';
 import Blog from '@/components/BlogWrapper';
 import { useTheme } from '@/components/ThemeProvider';
+import CheckProjectsPopup from '@/components/CheckProjectsPopup';
 
 export default function Home() {
   const { darkMode } = useTheme();
@@ -31,6 +32,7 @@ export default function Home() {
 
       {/* Sidebar: Project List */}
       <aside className="hidden md:flex md:w-[320px] md:scale-70 md:items-center overflow-y-auto px-4 py-4">
+        <CheckProjectsPopup />
         <ProjectList onSelect={setSelectedProject} />
       </aside>
 
