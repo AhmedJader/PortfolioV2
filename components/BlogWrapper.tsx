@@ -92,30 +92,32 @@ export default function BlogWrapper() {
 
       {/* InfoCard with typewriter animation */}
       <div className="hover:cursor-pointer hover:scale-105 transition-all duration-300 ease-in-out w-full bg-[var(--color-background)] text-[var(--color-text)] border border-[var(--color-border)] rounded-xl p-4">
-        <h3 className="font-semibold text-base mb-2">🛠 Tech Stack</h3>
+        <h3 className="font-semibold text-base mb-2">🧠 Tech Skills</h3>
         <p className="text-sm text-[var(--color-subtext)] leading-relaxed">
-          <strong>Frontend:</strong> Next.js 14 (App Router), React, TailwindCSS v4<br />
+          <strong>Frontend:</strong> Next.js 14 (App Router), React, TailwindCSS (v4), TypeScript<br />
           <strong>Backend:</strong> FastAPI, Express.js, Flask, Drizzle ORM<br />
-          <strong>Databases:</strong> PostgreSQL, NeonDB, ChromaDB, MongoDB<br />
-          <strong>AI/RAG:</strong> OpenAI GPT-4o, Vercel AI SDK, LangChain, Ollama, Cohere API, pgvector<br />
-          <strong>Infra:</strong> Serverless (Vercel), Self-hosted Linux LLMs, JWT, Bcrypt<br />
-          <strong>ML/Tooling:</strong> Scikit-Learn, SerpAPI, PDF-parse, TypeScript, Python
+          <strong>Databases:</strong> PostgreSQL (NeonDB), MongoDB, Supabase<br />
+          <strong>AI/RAG:</strong> OpenAI GPT-4o, Vercel AI SDK, LangChain, Ollama, pgvector<br />
+          <strong>Languages:</strong> Python, Java, C#, JavaScript, Typescript, HTML/CSS<br />
         </p>
       </div>
+
 
 
 
 
       {/* InfoCard with typewriter animation */}
       <div className="hover:cursor-pointer hover:scale-105 transition-all duration-300 ease-in-out w-full bg-[var(--color-background)] text-[var(--color-text)] border border-[var(--color-border)] rounded-xl p-4">
-        <h3 className="font-semibold text-base mb-2">🧭 Working On</h3>
-        <p className="text-sm text-[var(--color-subtext)]">
-          • Building an RAG AI-powered automated résumé agent<br />
-          • Exploring Rag Agent Tools with NeonDB<br />
-          • Preparing a portfolio website (this one!)<br />
-          • Learning System Design workflows<br />
+        <h3 className="font-semibold text-base mb-1">🌟 Beyond the Code</h3>
+        <p className="text-sm text-[var(--color-subtext)] leading-relaxed">
+          <strong>Hobbies:</strong> Watching anime, hitting the gym, and playing basketball<br />
+          <strong>What I enjoy:</strong> Doomscrolling tiktok videos<br />
+          <strong>Outside tech:</strong> I value staying active — mentally through binging netflix, physically through lifting weights<br />
         </p>
       </div>
+
+
+
 
 
     </div>

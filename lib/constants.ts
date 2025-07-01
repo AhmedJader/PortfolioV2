@@ -9,11 +9,11 @@ export interface Project {
 export const PROJECTS: Project[] = [
   {
     id: 'portfolio',
-    name: 'AI Portfolio Website',
-    shortDescription: 'Serverless portfolio with AI chatbot, Vercel SDK, and pgvector.',
+    name: 'Resume Agent Tool',
+    shortDescription: 'RAG Agent to curate and generate improved resumes for users.',
     longDescription:
-      'This portfolio features an AI chatbot that responds based on facts embedded from my résumé and personal documents. Built with Next.js 14 App Router, TailwindCSS v4, Vercel AI SDK, Drizzle ORM, and NeonDB (pgvector).',
-    url: 'https://github.com/your-username/portfolio',
+      'This project is a Resume Agent that uses RAG (Retrieval-Augmented Generation) to curate new resumes based on embeddings from LinkedIn job descriptions. It tailors feedback and generates improved résumés for users, helping them stand out in the job market.',
+    url: 'https://github.com/AhmedJader/ResumAgent',
   },
   {
     id: 'rag-chatbot',
@@ -25,11 +25,11 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'finance-tracker',
-    name: 'Finance Tracker',
-    shortDescription: 'Expense tracking tool built with Flask and React.',
+    name: 'FootPrint Scraper',
+    shortDescription: 'Social Media Footprint tracking tool built with Express.js and next.js react.',
     longDescription:
-      'This app lets users track expenses and budgets with user auth, REST APIs, and visualization dashboards. It uses Flask for the backend, React for the frontend, and SQLite/PostgreSQL for persistence.',
-    url: 'https://github.com/your-username/finance-tracker',
+      'This app lets users view security vulnerabilites via OSINT and informs them with alerts, REST APIs, and visualization dashboards. It uses express.js for the backend, React for the frontend.',
+    url: 'https://github.com/AhmedJader/AnonAlyze',
   },
   {
     id: 'agentic-tutor',
