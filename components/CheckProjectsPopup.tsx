@@ -21,7 +21,7 @@ export default function CheckProjectsPopup() {
   return (
     <div
       className={`
-        fixed top-[10%] z-50 px-4 py-2 rounded-lg shadow-lg transition-all hidden md:block duration-500 text-sm
+        fixed top-[10%] z-50 px-4 py-2 rounded-lg shadow-lg animate-bounce hover:cursor-pointer hover:scale-102 transition-all hidden md:block duration-500 text-sm
         ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'}
         bg-[var(--color-card)] text-[var(--color-text)] border border-gray-300 dark:border-zinc-700
       `}
