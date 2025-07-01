@@ -45,6 +45,15 @@ export default function ChatWrapper() {
               York University · Class of 2027<br />
               Toronto, Ontario
             </p>
+            <a
+              href="/ahmed.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-1 inline-block text-xs text-blue-500 hover:underline transition-all"
+            >
+              📄 View Resume
+            </a>
+
           </div>
         </div>
         <ThemeToggle />
