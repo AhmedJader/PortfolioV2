@@ -41,11 +41,11 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'cloudless-agent',
-    name: 'Cloudless RAG Agent',
-    shortDescription: 'RAG-based chatbot with fully local operation and memory.',
+    name: 'Aether Club Site',
+    shortDescription: 'Uottawa Aether Club site',
     longDescription:
-      'A cloud-independent agentic chatbot that only responds using local knowledge base data. Built with Next.js 14, Drizzle ORM, pgvector (NeonDB), and Vercel AI SDK. Supports OpenAI and local embedding fallback, with fact recall and streaming support.',
-    url: 'https://github.com/your-username/cloudless-agent', // Update with real link if needed
+      'Aether is a student-run club at the University of Ottawa focused on AI and machine learning. This site showcases our projects, events, and resources for students interested in AI.',
+    url: 'https://stemaihub.com', // Update with real link if needed
   }
 ];
 

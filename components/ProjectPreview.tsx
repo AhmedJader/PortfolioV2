@@ -30,7 +30,7 @@ export default function ProjectPreview({ project, onClose }: Props) {
             rel="noopener noreferrer"
             className="inline-block mt-4 text-blue-500 hover:underline text-sm"
           >
-            Visit Repository →
+            Visit URL →
           </a>
         </div>
       )}
