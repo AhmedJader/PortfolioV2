@@ -33,7 +33,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'agentic-tutor',
-    name: 'Sustainable Agentic Tutor',
+    name: 'Langchain Agentic Tutor',
     shortDescription: 'Self-hosted LLM tutor with sustainability and DEI focus.',
     longDescription:
       'A next-generation educational platform that creates personalized learning paths using quiz data and curriculum PDFs. Built with Next.js, FastAPI, Ollama, LangChain, and Chroma. Features include RAG-based retrieval, SerpAPI resource fetching, multi-language support, and a live sustainability dashboard. Designed to reduce carbon and cost by shifting computation to client devices.',
