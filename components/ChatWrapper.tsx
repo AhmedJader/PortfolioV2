@@ -43,7 +43,6 @@ export default function ChatWrapper() {
             <h2 className="text-sm font-semibold">Ahmed Abduljader</h2>
             <p className="text-xs text-[var(--color-subtext)]">
               York University · Class of 2027<br />
-              Toronto, Ontario
             </p>
             <a
               href="/ahmed.pdf"
