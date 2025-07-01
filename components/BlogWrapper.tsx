@@ -59,7 +59,7 @@ export default function BlogWrapper() {
         <img
           src="/ahmed.webp"
           alt="Ahmed"
-          className="w-24 h-24 rounded-full border border-[var(--color-border)] object-cover"
+          className="hover:cursor-pointer hover:animate-spin hover:scale-105 transition-all duration-300 ease-in-out w-24 h-24 rounded-full border border-[var(--color-border)] object-cover"
         />
         <div>
           <h2 className="text-xl font-bold">Ahmed Abduljader</h2>
@@ -79,7 +79,7 @@ export default function BlogWrapper() {
       </div>
 
       {/* InfoCard with typewriter animation */}
-      <div className="w-full bg-[var(--color-background)] text-[var(--color-text)] border border-[var(--color-border)] rounded-xl p-4 min-h-[140px]">
+      <div className="hover:cursor-pointer hover:scale-105 transition-all duration-300 ease-in-out w-full bg-[var(--color-background)] text-[var(--color-text)] border border-[var(--color-border)] rounded-xl p-4 min-h-[140px]">
         <h3 className="font-semibold text-base mb-2">
           {typedTitle}
           <span className="animate-pulse">{phase === 'title' && '|'}</span>
@@ -91,7 +91,7 @@ export default function BlogWrapper() {
       </div>
 
       {/* InfoCard with typewriter animation */}
-      <div className="w-full bg-[var(--color-background)] text-[var(--color-text)] border border-[var(--color-border)] rounded-xl p-4">
+      <div className="hover:cursor-pointer hover:scale-105 transition-all duration-300 ease-in-out w-full bg-[var(--color-background)] text-[var(--color-text)] border border-[var(--color-border)] rounded-xl p-4">
         <h3 className="font-semibold text-base mb-2">🛠 Tech Stack</h3>
         <p className="text-sm text-[var(--color-subtext)] leading-relaxed">
           <strong>Frontend:</strong> Next.js 14 (App Router), React, TailwindCSS v4<br />
@@ -107,7 +107,7 @@ export default function BlogWrapper() {
 
 
       {/* InfoCard with typewriter animation */}
-      <div className="w-full bg-[var(--color-background)] text-[var(--color-text)] border border-[var(--color-border)] rounded-xl p-4">
+      <div className="hover:cursor-pointer hover:scale-105 transition-all duration-300 ease-in-out w-full bg-[var(--color-background)] text-[var(--color-text)] border border-[var(--color-border)] rounded-xl p-4">
         <h3 className="font-semibold text-base mb-2">🧭 Now</h3>
         <p className="text-sm text-[var(--color-subtext)]">
           • Building an AI-powered résumé agent using RAG<br />
