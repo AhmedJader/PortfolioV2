@@ -19,7 +19,7 @@ export default function ProjectList({ onSelect }: Props) {
             >
               <h3 className="text-base font-semibold">{project.name}</h3>
               <p className="text-sm opacity-80">{project.shortDescription}</p>
-              <span className="text-blue-400 text-sm mt-2 inline-block">Click to expand →</span>
+              <span className="text-blue-400 text-sm mt-2 inline-block">Click on me to expand →</span>
             </div>
           ))}
         </div>
