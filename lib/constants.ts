@@ -12,16 +12,16 @@ export const PROJECTS: Project[] = [
     name: 'Resume Agent Tool',
     shortDescription: 'RAG Agent to curate and generate improved resumes for users.',
     longDescription:
-      'This project is a Resume Agent that uses RAG (Retrieval-Augmented Generation) to curate new resumes based on embeddings from LinkedIn job descriptions. It tailors feedback and generates improved résumés for users, helping them stand out in the job market.',
+      'This project (under Development) is a Resume Agent that uses RAG (Retrieval-Augmented Generation) to curate new resumes based on embeddings from LinkedIn job descriptions. It tailors feedback and generates improved résumés for users, helping them stand out in the job market.',
     url: 'https://github.com/AhmedJader/ResumAgent',
   },
   {
     id: 'rag-chatbot',
-    name: 'RAG Chatbot',
-    shortDescription: 'Contextual chatbot with RAG using OpenAI + vector DB.',
+    name: 'YuLearn',
+    shortDescription: 'York University Learning platform',
     longDescription:
-      'A fullstack chatbot built with OpenAI GPT-4o and pgvector. Uses embedding-based retrieval to reduce hallucination and respond only using the provided context. Includes support for PDF ingestion, chat memory, and streaming.',
-    url: 'https://github.com/your-username/rag-chatbot',
+      'A codemy style learning platform for York University students. It provides resources, tutorials, and a community for students to enhance their learning experience. The platform is built with Next.js and integrates various educational tools.',
+    url: 'https://github.com/AhmedJader/YUlearn',
   },
   {
     id: 'finance-tracker',
