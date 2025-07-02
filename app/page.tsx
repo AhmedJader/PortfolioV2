@@ -2,11 +2,11 @@
 import { useState } from 'react';
 import type { Project } from '@/lib/constants';
 import CheckProjectsPopup from '@/components/CheckProjectsPopup';
-import ProjectList       from '@/components/ProjectList';
-import ProjectPreview    from '@/components/ProjectPreview';
-import ChatWrapper       from '@/components/ChatWrapper';
-import BlogWrapper       from '@/components/BlogWrapper';
-import { useTheme }      from '@/components/ThemeProvider';
+import ProjectList from '@/components/ProjectList';
+import ProjectPreview from '@/components/ProjectPreview';
+import ChatWrapper from '@/components/ChatWrapper';
+import BlogWrapper from '@/components/BlogWrapper';
+import { useTheme } from '@/components/ThemeProvider';
 
 export default function Home() {
   const { darkMode } = useTheme();
@@ -25,11 +25,14 @@ export default function Home() {
       </div>
 
       {/* Left feed – fixed 192px */}
-      <aside className="w-48 flex-shrink-0 p-4 flex flex-col h-full">
+      <aside className="w-48 justify-center p-4 flex flex-col h-full">
         <CheckProjectsPopup />
-        <div className="flex-1 lg:scale-70 overflow-hidden">
-          <ProjectList onSelect={setSelectedProject} />
+        <div className="flex-1 flex items-center justify-center">
+          <div className="h-[80%] w-full overflow-hidden">
+            <ProjectList onSelect={setSelectedProject} />
+          </div>
         </div>
+
       </aside>
 
       {/* Middle chat – flex-grow */}

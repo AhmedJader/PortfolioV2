@@ -14,13 +14,22 @@ export default function ProjectList({ onSelect }: Props) {
             <div
               key={`${project.id}-${idx}`}
               onClick={() => onSelect(project)}
-              className="p-3 rounded-lg border border-[var(--color-border)] bg-[var(--color-card)] text-[var(--color-text)] hover:scale-102 transition-transform origin-left cursor-pointer"
+              className="w-full px-4 py-3 rounded-xl border border-[var(--color-border)] 
+            bg-[var(--color-card)] text-[var(--color-text)] 
+            hover:scale-[1.02] transition-transform duration-300 ease-in-out 
+            origin-left hover:shadow-md cursor-pointer"
+
             >
-              <h3 className="font-semibold">{project.name}</h3>
-              <p className="text-sm opacity-80">{project.shortDescription}</p>
-              <span className="text-blue-400 text-sm mt-2 inline-block">
+              <h3 className="text-sm font-semibold text-blue-400 truncate">
+                {project.name}
+              </h3>
+              <p className="text-xs mt-1 leading-snug opacity-80">
+                {project.shortDescription}
+              </p>
+              <span className="text-blue-500 text-xs mt-2 block">
                 Click to expand →
               </span>
+
             </div>
           ))}
         </div>
