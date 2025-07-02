@@ -27,7 +27,7 @@ export default function Home() {
       {/* Left feed – fixed 192px */}
       <aside className="w-48 flex-shrink-0 p-4 flex flex-col h-full">
         <CheckProjectsPopup />
-        <div className="flex-1 overflow-hidden">
+        <div className="flex-1 lg:scale-70 overflow-hidden">
           <ProjectList onSelect={setSelectedProject} />
         </div>
       </aside>
