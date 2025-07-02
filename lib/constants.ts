@@ -61,7 +61,7 @@ export const INFOCARDS: InfoCard[] = [
   {
     id: 'resume-agent',
     title: '🧠 Resume RAG Agent',
-    description: 'Building a resume agent that curates new resumes based on embeddings from linkedin job descriptions to tailor feedback and generate improved résumés.',
+    description: 'Building a resume agent that curates new resumes based on embeddings from linkedin job descriptions to tailor feedback',
   },
   {
     id: 'rag-playground',

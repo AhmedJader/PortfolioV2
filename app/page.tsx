@@ -40,7 +40,7 @@ export default function Home() {
       </section>
 
       {/* Right blog – fixed 320px */}
-      <aside className="w-90 flex-shrink-0 p-4 flex flex-col h-full">
+      <aside className="w-100 flex-shrink-0 p-4 flex flex-col h-full">
         <BlogWrapper />
       </aside>
 
