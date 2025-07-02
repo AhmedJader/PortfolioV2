@@ -41,11 +41,18 @@ export default function Home() {
       </section>
 
       {/* RIGHT: Blog */}
-      <aside className="hidden md:flex md:w-[340px] p-4 flex-col justify-center items-center">
-        <div className="w-full h-full px-4 md:px-6 flex items-center justify-center overflow-visible">
+      <aside className="hidden md:flex md:w-[340px] p-4 items-center justify-center">
+        <div className="
+    w-full max-w-[320px]
+    max-h-[660px]
+    h-full 
+    flex items-center justify-center 
+    overflow-visible
+  ">
           <BlogWrapper />
         </div>
       </aside>
+
 
 
 
