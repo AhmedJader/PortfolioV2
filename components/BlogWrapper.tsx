@@ -84,7 +84,7 @@ export default function BlogWrapper() {
       </div>
 
       {/* Rotating InfoCard */}
-      <div className="flex flex-col flex-grow">
+      <div className="flex flex-col flex-grow cursor-pointer">
         <div
         className="
     w-full
@@ -116,7 +116,7 @@ export default function BlogWrapper() {
 
 
       {/* Static InfoCards */}
-      <div className="flex flex-col gap-3 flex-grow">
+      <div className="flex flex-col gap-3 flex-grow cursor-pointer">
         <div
           className="
             bg-[var(--color-background)] text-[var(--color-text)]
@@ -138,7 +138,7 @@ export default function BlogWrapper() {
         </div>
 
         <div
-          className="
+          className=" cursor-pointer
             bg-[var(--color-background)] text-[var(--color-text)]
             border border-[var(--color-border)] rounded-xl
             p-4 md:p-5 transition-transform hover:scale-[1.03]
