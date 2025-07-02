@@ -42,12 +42,11 @@ export default function Home() {
 
       {/* RIGHT: Blog */}
       <aside className="hidden md:flex md:w-[340px] p-4 flex-col justify-center items-center">
-        <div className="w-full px-4 md:px-6 h-[90%] overflow-hidden">
-          <div className="h-full overflow-y-auto scrollbar-hide">
-            <BlogWrapper />
-          </div>
+        <div className="w-full h-full px-4 md:px-6 flex items-center justify-center overflow-visible">
+          <BlogWrapper />
         </div>
       </aside>
+
 
 
       {/* Modal */}
