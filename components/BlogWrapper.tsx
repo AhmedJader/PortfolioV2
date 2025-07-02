@@ -10,6 +10,7 @@ export default function BlogWrapper() {
   const [phase, setPhase] = useState<'title' | 'desc'>('title');
   const card = INFOCARDS[idx];
 
+  // Typewriter effect
   useEffect(() => {
     let t: NodeJS.Timeout;
     const speed = 25;
@@ -31,39 +32,36 @@ export default function BlogWrapper() {
   }, [char, phase, card]);
 
   useEffect(() => {
-    const iv = setInterval(() => {
-      setIdx((i) => (i + 1) % INFOCARDS.length);
+    const interval = setInterval(() => {
+      setIdx((prev) => (prev + 1) % INFOCARDS.length);
       setTitle('');
       setDesc('');
       setChar(0);
       setPhase('title');
     }, 6000);
-    return () => clearInterval(iv);
+    return () => clearInterval(interval);
   }, []);
 
   return (
     <div className="
       flex flex-col w-full h-full
       bg-[var(--color-card)] text-[var(--color-text)]
-      border border-[var(--color-border)] rounded-2xl shadow-xl
-      p-3 gap-2 transition-colors duration-300
-      overflow-visible
+      border border-[var(--color-border)] rounded-2xl shadow-lg
+      p-4 gap-3 overflow-visible transition-colors duration-300
     ">
       {/* Header */}
-      <div className="flex flex-col items-center text-center gap-0.5 shrink-0">
+      <div className="flex flex-col items-center text-center gap-1">
         <img
           src="/ahmed.webp"
           alt="Ahmed Abduljader"
-          className="w-14 h-14 md:w-20 md:h-20 rounded-full border border-[var(--color-border)] object-cover hover:cursor-pointer hover:animate-spin"
+          className="w-16 h-16 rounded-full border border-[var(--color-border)] object-cover hover:cursor-pointer hover:animate-spin"
         />
-        <h2 className="text-sm md:text-base font-semibold">Ahmed Abduljader</h2>
-        <p className="text-[10px] md:text-xs text-[var(--color-subtext)]">
-          Software Engineer · Toronto, Canada
-        </p>
+        <h2 className="text-base font-semibold">Ahmed Abduljader</h2>
+        <p className="text-xs text-[var(--color-subtext)]">Software Engineer · Toronto, Canada</p>
       </div>
 
       {/* Dot indicators */}
-      <div className="flex justify-center space-x-1 text-[9px] md:text-xs shrink-0">
+      <div className="flex justify-center space-x-1 text-xs">
         {INFOCARDS.map((_, i) => (
           <span key={i} className={i === idx ? 'text-white' : 'text-[var(--color-subtext)]'}>
             {i === idx ? '●' : '○'}
@@ -71,31 +69,31 @@ export default function BlogWrapper() {
         ))}
       </div>
 
-      {/* All Cards */}
-      <div className="flex flex-col flex-1 justify-evenly">
-        {/* Animated InfoCard */}
+      {/* Info Cards */}
+      <div className="flex flex-col flex-1 justify-evenly gap-3">
+        {/* Animated Card */}
         <div className="
           bg-[var(--color-background)] text-[var(--color-text)]
           border border-[var(--color-border)] rounded-xl
-          p-2.5 h-[90px] md:h-[110px] transition-transform hover:cursor-pointer hover:scale-[1.015]
+          p-3 min-h-[100px] md:min-h-[120px]
+          hover:scale-[1.015] hover:cursor-pointer transition-all
         ">
-          <h3 className="text-[13px] font-medium leading-tight mb-1">
+          <h3 className="text-sm font-medium mb-1">
             {title}{phase === 'title' && <span className="animate-pulse">|</span>}
           </h3>
-          <p className="text-[9.5px] text-[var(--color-subtext)] leading-tight">
+          <p className="text-xs text-[var(--color-subtext)] leading-snug">
             {desc}{phase === 'desc' && <span className="animate-pulse">|</span>}
           </p>
         </div>
 
-        {/* Tech Skills Card */}
+        {/* Tech Skills */}
         <div className="
           bg-[var(--color-background)] border border-[var(--color-border)]
-          rounded-xl p-2.5 transition-transform duration-200 ease-in-out
-          hover:scale-[1.015] hover:shadow-md hover:cursor-pointer
-          text-[10px]
+          rounded-xl p-3 text-xs leading-relaxed
+          hover:scale-[1.015] hover:shadow-md hover:cursor-pointer transition-all
         ">
-          <h3 className="text-[13px] font-medium mb-1">🧠 Tech Skills</h3>
-          <p className="text-[9.5px] text-[var(--color-subtext)] leading-tight">
+          <h3 className="text-sm font-semibold mb-1">🧠 Tech Skills</h3>
+          <p className="text-xs text-[var(--color-subtext)]">
             <strong>Frontend:</strong> Next.js 14, React, TailwindCSS v4, TypeScript<br />
             <strong>Backend:</strong> FastAPI, Express.js, Flask, Drizzle ORM<br />
             <strong>Databases:</strong> PostgreSQL (NeonDB), MongoDB, Supabase<br />
@@ -104,15 +102,14 @@ export default function BlogWrapper() {
           </p>
         </div>
 
-        {/* Beyond the Code Card */}
+        {/* Beyond the Code */}
         <div className="
           bg-[var(--color-background)] border border-[var(--color-border)]
-          rounded-xl p-2.5 transition-transform duration-200 ease-in-out
-          hover:scale-[1.015] hover:shadow-md hover:cursor-pointer
-          text-[10px]
+          rounded-xl p-3 text-xs leading-relaxed
+          hover:scale-[1.015] hover:shadow-md hover:cursor-pointer transition-all
         ">
-          <h3 className="text-[13px] font-medium mb-1">🌟 Beyond the Code</h3>
-          <p className="text-[9.5px] text-[var(--color-subtext)] leading-tight">
+          <h3 className="text-sm font-semibold mb-1">🌟 Beyond the Code</h3>
+          <p className="text-xs text-[var(--color-subtext)]">
             <strong>Hobbies:</strong> Watching anime, hitting the gym, playing basketball<br />
             <strong>What I enjoy:</strong> Doomscrolling TikTok videos<br />
             <strong>Outside tech:</strong> Mentally (Netflix binges) & physically (lifting)
