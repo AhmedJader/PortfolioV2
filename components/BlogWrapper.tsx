@@ -4,122 +4,132 @@ import { useEffect, useState } from 'react';
 import { INFOCARDS } from '@/lib/constants';
 
 export default function BlogWrapper() {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [typedTitle, setTypedTitle] = useState('');
-  const [typedDesc, setTypedDesc] = useState('');
-  const [charIndex, setCharIndex] = useState(0);
+  const [idx, setIdx] = useState(0);
+  const [title, setTitle] = useState('');
+  const [desc, setDesc] = useState('');
+  const [char, setChar] = useState(0);
   const [phase, setPhase] = useState<'title' | 'desc'>('title');
+  const card = INFOCARDS[idx];
 
-  const activeCard = INFOCARDS[activeIndex];
-
-  // Animate title then description
   useEffect(() => {
-    const typingSpeed = 25;
-    if (phase === 'title') {
-      if (charIndex < activeCard.title.length) {
-        const timeout = setTimeout(() => {
-          setTypedTitle((prev) => prev + activeCard.title[charIndex]);
-          setCharIndex((prev) => prev + 1);
-        }, typingSpeed);
-        return () => clearTimeout(timeout);
-      } else {
-        setCharIndex(0);
-        setPhase('desc');
-      }
-    } else if (phase === 'desc') {
-      if (charIndex < activeCard.description.length) {
-        const timeout = setTimeout(() => {
-          setTypedDesc((prev) => prev + activeCard.description[charIndex]);
-          setCharIndex((prev) => prev + 1);
-        }, typingSpeed);
-        return () => clearTimeout(timeout);
-      }
+    let t: NodeJS.Timeout;
+    const speed = 25;
+    if (phase === 'title' && char < card.title.length) {
+      t = setTimeout(() => {
+        setTitle(prev => prev + card.title[char]);
+        setChar(c => c + 1);
+      }, speed);
+    } else if (phase === 'title') {
+      setChar(0); setPhase('desc');
+    } else if (char < card.description.length) {
+      t = setTimeout(() => {
+        setDesc(prev => prev + card.description[char]);
+        setChar(c => c + 1);
+      }, speed);
     }
-  }, [charIndex, phase, activeCard]);
+    return () => clearTimeout(t);
+  }, [char, phase, card]);
 
-  // Rotate card every 6s, reset states
   useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % INFOCARDS.length);
-      setTypedTitle('');
-      setTypedDesc('');
-      setCharIndex(0);
-      setPhase('title');
-    }, 6000); // 6 seconds for each card
-
-    return () => clearInterval(interval);
+    const iv = setInterval(() => {
+      setIdx(i => (i + 1) % INFOCARDS.length);
+      setTitle(''); setDesc(''); setChar(0); setPhase('title');
+    }, 6000);
+    return () => clearInterval(iv);
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-start h-auto w-full max-w-md bg-[var(--color-card)] text-[var(--color-text)] border border-[var(--color-border)] rounded-2xl shadow-xl overflow-hidden transition-colors duration-300 p-6 space-y-4">
-
-
-      {/* Profile Header */}
-      <div className="flex flex-col items-center text-center space-y-2">
+    <div
+      className="
+        flex flex-col w-full
+        h-auto md:h-full
+        justify-between
+        bg-[var(--color-card)] text-[var(--color-text)]
+        border border-[var(--color-border)] rounded-2xl shadow-xl
+        p-4 space-y-3
+        transition-colors duration-300
+      "
+    >
+      {/* header */}
+      <div className="flex flex-col items-center text-center space-y-1">
         <img
           src="/ahmed.webp"
-          alt="Ahmed"
-          className="hover:cursor-pointer hover:animate-spin hover:scale-105 transition-all duration-300 ease-in-out w-24 h-24 rounded-full border border-[var(--color-border)] object-cover"
+          alt="Ahmed Abduljader"
+          className="hover:cursor-pointer hover:animate-spin hover:scale-105 w-16 h-16 rounded-full border border-[var(--color-border)] object-cover"
         />
-        <div>
-          <h2 className="text-xl font-bold">Ahmed Abduljader</h2>
-          <p className="text-sm text-[var(--color-subtext)]">Software Engineer · Toronto, Canada</p>
-        </div>
+        <h2 className="text-lg font-semibold">Ahmed Abduljader</h2>
+        <p className="text-xs text-[var(--color-subtext)]">
+          Software Engineer · Toronto, Canada
+        </p>
       </div>
-      {/* Dot Indicators */}
-      <div className="flex space-x-2">
+
+      {/* dots */}
+      <div className="flex justify-center space-x-1 text-[10px]">
         {INFOCARDS.map((_, i) => (
-          <span
-            key={i}
-            className={`text-xs ${i === activeIndex ? 'text-white' : 'text-[var(--color-subtext)]'}`}
-          >
-            {i === activeIndex ? '●' : '○'}
+          <span key={i}
+            className={i === idx ? 'text-white' : 'text-[var(--color-subtext)]'}>
+            {i === idx ? '●' : '○'}
           </span>
         ))}
       </div>
 
-      {/* InfoCard with typewriter animation */}
-      <div className="hover:cursor-pointer hover:scale-105 transition-all duration-300 ease-in-out w-full bg-[var(--color-background)] text-[var(--color-text)] border border-[var(--color-border)] rounded-xl p-4 min-h-[140px]">
-        <h3 className="font-semibold text-base mb-2">
-          {typedTitle}
-          <span className="animate-pulse">{phase === 'title' && '|'}</span>
+      {/* rotating InfoCard */}
+      <div
+        className="
+          w-full
+          bg-[var(--color-background)] text-[var(--color-text)]
+          border border-[var(--color-border)] rounded-xl
+          p-4 transition-transform hover:scale-[1.03]
+          transform-gpu will-change-transform
+          min-h-[100px]
+        "
+      >
+        <h3 className="text-sm font-medium leading-tight mb-1">
+          {title}
+          {phase === 'title' && <span className="animate-pulse">|</span>}
         </h3>
-        <p className="text-sm text-[var(--color-subtext)] whitespace-pre-wrap">
-          {typedDesc}
-          <span className="animate-pulse">{phase === 'desc' && '|'}</span>
+        <p className="text-[11px] text-[var(--color-subtext)] leading-relaxed">
+          {desc}
+          {phase === 'desc' && <span className="animate-pulse">|</span>}
         </p>
       </div>
 
-      {/* InfoCard with typewriter animation */}
-      <div className="hover:cursor-pointer hover:scale-105 transition-all duration-300 ease-in-out w-full bg-[var(--color-background)] text-[var(--color-text)] border border-[var(--color-border)] rounded-xl p-4">
-        <h3 className="font-semibold text-base mb-2">🧠 Tech Skills</h3>
-        <p className="text-sm text-[var(--color-subtext)] leading-relaxed">
-          <strong>Frontend:</strong> Next.js 14 (App Router), React, TailwindCSS (v4), TypeScript<br />
-          <strong>Backend:</strong> FastAPI, Express.js, Flask, Drizzle ORM<br />
-          <strong>Databases:</strong> PostgreSQL (NeonDB), MongoDB, Supabase<br />
-          <strong>AI/RAG:</strong> OpenAI GPT-4o, Vercel AI SDK, LangChain, Ollama, pgvector<br />
-          <strong>Languages:</strong> Python, Java, C#, JavaScript, Typescript, HTML/CSS<br />
-        </p>
+      {/* static InfoCards */}
+      <div className="flex flex-col gap-3 flex-grow">
+        <div
+          className="
+            bg-[var(--color-background)] text-[var(--color-text)]
+            border border-[var(--color-border)] rounded-xl
+            p-4 transition-transform hover:scale-[1.03]
+            transform-gpu will-change-transform
+          "
+        >
+          <h3 className="text-sm font-medium leading-tight mb-2">🧠 Tech Skills</h3>
+          <p className="text-[11px] text-[var(--color-subtext)] leading-relaxed">
+            <strong>Frontend:</strong> Next.js 14 (App Router), React, TailwindCSS v4, TypeScript<br />
+            <strong>Backend:</strong> FastAPI, Express.js, Flask, Drizzle ORM<br />
+            <strong>Databases:</strong> PostgreSQL (NeonDB), MongoDB, Supabase<br />
+            <strong>AI/RAG:</strong> OpenAI GPT-4o, Vercel AI SDK, LangChain, Ollama, pgvector<br />
+            <strong>Languages:</strong> Python, Java, C#, JavaScript, TypeScript, HTML/CSS
+          </p>
+        </div>
+
+        <div
+          className="
+            bg-[var(--color-background)] text-[var(--color-text)]
+            border border-[var(--color-border)] rounded-xl
+            p-4 transition-transform hover:scale-[1.03]
+            transform-gpu will-change-transform
+          "
+        >
+          <h3 className="text-sm font-medium leading-tight mb-2">🌟 Beyond the Code</h3>
+          <p className="text-[11px] text-[var(--color-subtext)] leading-relaxed">
+            <strong>Hobbies:</strong> Watching anime, hitting the gym, playing basketball<br />
+            <strong>What I enjoy:</strong> Doomscrolling TikTok videos<br />
+            <strong>Outside tech:</strong> Mentally (Netflix binges) & physically (lifting)
+          </p>
+        </div>
       </div>
-
-
-
-
-
-      {/* InfoCard with typewriter animation */}
-      <div className="hover:cursor-pointer hover:scale-105 transition-all duration-300 ease-in-out w-full bg-[var(--color-background)] text-[var(--color-text)] border border-[var(--color-border)] rounded-xl p-4">
-        <h3 className="font-semibold text-base mb-1">🌟 Beyond the Code</h3>
-        <p className="text-sm text-[var(--color-subtext)] leading-relaxed">
-          <strong>Hobbies:</strong> Watching anime, hitting the gym, and playing basketball<br />
-          <strong>What I enjoy:</strong> Doomscrolling tiktok videos<br />
-          <strong>Outside tech:</strong> I value staying active — mentally through binging netflix, physically through lifting weights<br />
-        </p>
-      </div>
-
-
-
-
-
     </div>
   );
 }
