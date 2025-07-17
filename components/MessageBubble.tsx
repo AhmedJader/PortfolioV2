@@ -13,11 +13,11 @@ export default function MessageBubble({ role, content, toolName }: MessageProps)
   return (
     <div className={`flex w-full ${isAssistant ? 'justify-start' : 'justify-end'} transition-all duration-300 ease-in-out`}>
       <div
-        className={`max-w-[80%] hover:cursor-pointer hover:scale-102 transition-all duration-300 ease-in-out px-4 py-2 rounded-xl border text-sm ${
+        className={`max-w-[80%] hover:cursor-pointer hover:scale-102 transition-all duration-300 ease-in-out px-4 py-2 rounded-xl  text-sm ${
           isAssistant
             ? darkMode
-              ? 'bg-white/10 border-white text-white rounded-br-xl'
-              : 'bg-gray-100 border-gray-300 text-black rounded-br-xl'
+              ? 'bg-white/10  border-white text-white rounded-br-xl'
+              : 'bg-gray-200 border-gray-300 text-black rounded-br-xl'
             : darkMode
               ? 'bg-white text-black border-white rounded-bl-xl'
               : 'bg-black text-white border-black rounded-bl-xl'
